@@ -1,0 +1,22 @@
+{
+  "name": "lokasimu",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "axios": "^0.21.4",
+    "sass": "^1.42.1",
+    "vite-plugin-windicss": "^1.4.5",
+    "vue": "^3.2.13",
+    "windicss": "^3.1.7"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.9.0",
+    "typescript": "^4.4.3",
+    "vite": "^2.5.10",
+    "vue-tsc": "^0.3.0"
+  }
+}
