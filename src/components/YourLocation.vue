@@ -15,14 +15,53 @@
         >
             lokasimu.
         </h1>
-        <p class="mt-4">Your IP is : {{ public_ip }}</p>
+        <h5 class="font-light text-xl text-gray-200">
+            Your IP Address Geolocator
+        </h5>
+        <p class="mt-36 mb-3 font-light text-lg">Your Public IP Address</p>
+        <div
+            class="
+                ip-address-wrapper
+                bg-gray-100
+                w-fit
+                m-auto
+                py-4
+                px-8
+                rounded-2xl
+            "
+        >
+            <span class="text-7xl font-bold text-gray-900">{{
+                public_ip
+            }}</span>
+        </div>
     </div>
 </template>
 
-<script setup lang="ts">
-import { ref } from "vue";
+<script lang="ts">
+import { defineComponent, reactive, toRefs } from "vue";
+import axios from "axios";
 
-const public_ip = ref("1.2.3.4");
+export default defineComponent({
+    name: "YourLocation",
+    setup() {
+        const data = reactive({
+            public_ip: "" as string,
+        });
+
+        return { ...toRefs(data) };
+    },
+    mounted() {
+        this.getIPAddress();
+    },
+    methods: {
+        async getIPAddress() {
+            axios
+                .get("https://api.ipify.org?format=json")
+                .then((res) => (this.public_ip = res.data.ip))
+                .catch((err) => err);
+        },
+    },
+});
 </script>
 
 <style lang="scss" scoped>
