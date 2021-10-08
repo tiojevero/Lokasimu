@@ -6,6 +6,7 @@ Tech Stack :
 
 -   Vue 3 + Typescript 🌿
 -   Vite ⚡
+-   WindiCSS
 
 How to run :
 
